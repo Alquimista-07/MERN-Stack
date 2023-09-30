@@ -1,10 +1,34 @@
-import './App.css';
+// Importamos para poder usar rutas
+// El BrowserRouter es el componenten que nos permite crear rutas url en la aplicación
+// y el Route es una manera de poder especificar las rutas. En pocas palabras el BrowserRouter
+// es el contenedor y el Route son las rutas.
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+// Importamos los componentes
+import Navigation from "./components/Navigation";
+import NotesList from "./components/NotesList";
+import CreateNote from "./components/CreateNote";
+import CreateUser from "./components/CreateUser";
+
+import "./App.css";
 
 function App() {
   return (
-    <div>
-      Hello World!!!...
-    </div>
+    // Contenedor del las rutas
+    <Router>
+      <Navigation />
+
+      {/* Creamos las rutas */}
+      <Routes>
+        {/* con el exact indicamos que la ruta tiene que ser exácta */}
+        <Route path="/" exact Component={NotesList} />
+
+        <Route path="/edit/:id" Component={CreateNote} />
+        <Route path="/create" Component={CreateNote} />
+
+        <Route path="/user" Component={CreateUser} />
+      </Routes>
+    </Router>
   );
 }
 
