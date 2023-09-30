@@ -4,13 +4,16 @@
 // es el contenedor y el Route son las rutas.
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import "./App.css";
+// Importamos los paquetes de boostrap que instalamos a través de npm y que son necesarios para su uso
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
+
 // Importamos los componentes
 import Navigation from "./components/Navigation";
 import NotesList from "./components/NotesList";
 import CreateNote from "./components/CreateNote";
 import CreateUser from "./components/CreateUser";
-
-import "./App.css";
 
 function App() {
   return (
