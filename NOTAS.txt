@@ -1,0 +1,22 @@
+-----------------------------------------
+Visual Studio Code
+-----------------------------------------
+
+La siguiente configuración en el archivo settings.json nos permite
+activar emmet en archivos javascript para poder usar los snipets y
+y escribir código mucho más rápido.
+
+1. Para activarlo en damos la tecla F1 la cual nos abre una entrada de
+texto sobre la cual escribimos settings.
+
+2. Luego damos click sobre la que dice Open Settings (JSON)
+
+3. Nos va a abrir dicho archivo de configuraciones la cual es  un objeto
+JSON que contiene nuestras configuraciones, y sobre el cual vamos a
+agregar la siguiente propiedad:
+
+"emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+
+4. Guardamos y listo ya nos queda activo.
