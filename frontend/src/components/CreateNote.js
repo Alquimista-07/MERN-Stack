@@ -16,12 +16,29 @@ export default class CreateNote extends Component {
   async componentDidMount () {
     const res = await axios.get('http://localhost:4000/api/users');
     const users = res.data.users;
-    this.setState({users: users});
+    this.setState({
+      users: users,
+      userSelected: users[0].username
+    });
   }
 
-  onSubmit = (ev) => {
+  onSubmit = async (ev) => {
     ev.preventDefault();
-    console.log(this.state.title, this.state.content);
+    if(this.state.title !== '' && this.state.content !== ''){
+      const newNote = {
+        title: this.state.title,
+        content: this.state.content,
+        date: this.state.date,
+        author: this.state.userSelected
+      }
+      await axios.post('http://localhost:4000/api/notes', newNote)
+      
+      window.location.href = '/'
+      
+    } 
+    else {
+      alert("Complete los campos")
+    }
   }
 
   onInputChange = ev => {
@@ -45,6 +62,7 @@ export default class CreateNote extends Component {
           <div className="form-group">
             <select className='form-control'
                     name='userSelected'
+                    id='userSelected'
                     onChange={this.onInputChange}>
               {
                 //Recorremos para llenar los option
